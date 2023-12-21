@@ -1,0 +1,33 @@
+<!--h1要素に「title」ブロックを指定、div要素に「contents」ブロックを指定-->
+<html>
+
+<head>
+    <style>
+        h3 {  /* h3要素のスタイルを指定 */
+            background-color: silver;
+            padding: 8px;
+        }
+
+        /* 背景色を指定 */
+        div.user {
+            border: 1px dotted silver;
+            margin: 8px;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        {% block title %}
+        <!-- ここにタイトルを表示 -->
+        {% endblock %}
+    </h1>
+    <div>
+        {% block contents %}
+        <!-- ここにコンテンツを表示 -->
+        {% endblock %}
+    </div>
+</body>
+
+</html>

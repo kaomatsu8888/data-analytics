@@ -1,16 +1,22 @@
-<html><body>
-<!-- CSSの読み込み -->
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- ここで読み込み -->
-</head><body>
-<h1>{{ username }}さんの紹介</h1> <!-- ここまで -->
-<div id="desc">
-    {# 年齢によって表示内容を切り替える #} <!-- ここから -->
-    {% if age < 20 %} <!-- 20歳未満の場合 -->
-    <p>年齢は、{{ age }}歳です</p> <!-- 20歳未満の場合 -->
-    <p>未成年のため、メールアドレスは表示できません</p>
-    {% else %}
-    <p>年齢は、{{ age }}歳です</p> <!-- 20歳以上の場合 -->
-    <p>メールアドレスは、{{ email }}です</p> 
-    {% endif %}
-    </div> 
-</body></html> 
+<html>
+
+<body>
+    <!-- CSSの読み込み -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- ここで読み込み -->
+    </head>
+
+    <body>
+        <h1>{{ username }}さんの紹介</h1> <!-- ここまで -->
+        <div id="desc">
+            {# 年齢によって表示内容を切り替える #} <!-- ここから -->
+            {% if age < 20 %} <!-- 20歳未満の場合 -->
+                <p>年齢は、{{ age }}歳です</p> <!-- 20歳未満の場合 -->
+                <p>未成年のため、メールアドレスは表示できません</p>
+                {% else %}
+                <p>年齢は、{{ age }}歳です</p> <!-- 20歳以上の場合 -->
+                <p>メールアドレスは、{{ email }}です</p>
+                {% endif %}
+        </div>
+    </body>
+
+</html>
