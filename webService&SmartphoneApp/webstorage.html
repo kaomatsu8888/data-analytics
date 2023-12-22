@@ -1,0 +1,17 @@
+<!-- WebStrorageでデータを保存してみる -->
+<!DOCTYPE html>
+<html><meta charset="utf-8"><body>
+<textarea id="tbox" rows="5" cols="60"></textarea>
+<script type="text/javascript">
+    // テキストエリアのobjectを取得
+    const tbox = document.getElementById("tbox");
+    // テキストエリアが保存されていれば復元
+    if (localStorage["tbox"]) {
+        tbox.value = localStorage["tbox"];
+    }
+    // キーが押されたときにテキストを保存
+    tbox.onkeydown = function(e) {
+        localStorage["tbox"] = tbox.value
+    }
+</script>
+</body></html>
