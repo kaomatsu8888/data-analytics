@@ -16,8 +16,8 @@ def index():
         return redirect('/login') # ログイン画面にリダイレクトする
     # ログインしているならメイン画面を表示する
     return render_template('index.html', 
-                           user=bbs_login.get_user(), 
-                           data=bbs_data.load_data())
+                        user=bbs_login.get_user(), 
+                        data=bbs_data.load_data())
 
 # ログイン画面を表示する
 @app.route('/login') # アクセスするURLを指定する
@@ -58,7 +58,7 @@ def write():
 # テンプレートを利用してメッセージを表示する
 def show_msg(msg):
     return render_template('msg.html', 
-                           msg=msg)
+                        msg=msg)
 
 # 実行する
 if __name__ == '__main__':

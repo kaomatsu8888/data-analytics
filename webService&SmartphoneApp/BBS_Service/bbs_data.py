@@ -5,10 +5,11 @@ SAVE_FILE = BASE_DIR + '/data/log.json' # このファイルのあるディレ�
 
 # ログファイル（json形式）を読み出す関数
 def load_data():
-    if not os.path.exists(SAVE_FILE): # ファイルが存在しない場合
+    # ファイルが存在しない、または空の場合、空のリストを返す
+    if not os.path.exists(SAVE_FILE) or os.path.getsize(SAVE_FILE) == 0:
         return []
-    with open(SAVE_FILE, 'rt', encoding='utf-8') as f: # ファイルを読み込みモードで開く
-        return json.load(f) # json形式で読み込む
+    with open(SAVE_FILE, 'rt', encoding='utf-8') as f:
+        return json.load(f)
     
 # ログファイル（json形式）に書き込む関数
 def save_data(data_list):
