@@ -26,3 +26,18 @@ textarea {
     margin: 8px;
     padding: 8px;
 }
+.box_h {
+    margin: 4px; padding: 4px;
+    }
+#menu-switch {
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    width: 40px;
+    }
+    #menu {
+    display: none;
+    padding: 12px;
+    border: 1px solid silver;
+    }
+
