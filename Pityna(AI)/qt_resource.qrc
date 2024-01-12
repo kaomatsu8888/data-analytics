@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="re">
+    <file>img1.gif</file>
+  </qresource>
+</RCC>
