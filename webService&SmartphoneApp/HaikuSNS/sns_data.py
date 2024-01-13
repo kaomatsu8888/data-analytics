@@ -45,7 +45,7 @@ def get_text(id):
     return table.search(q.id == id)
 
 # タイムラインに表示する俳句を取得
-def get_timeline(id):
+def get_timelines(id):
     # お気に入り登録しているユーザーのIDを取得
     table, q = get_fav_table()
     favs = get_fav_list(id)

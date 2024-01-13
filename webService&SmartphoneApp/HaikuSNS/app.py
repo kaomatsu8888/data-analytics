@@ -18,7 +18,7 @@ def index():
     return render_template('index.html', id=me,
                         users=user.get_allusers(),
                         fav_users=data.get_fav_list(me),
-                        timelines=data.get_timeline(me))
+                        timelines=data.get_timelines(me))
 
 @app.route('/login') 
 def login(): # ログイン画面を表示
@@ -41,7 +41,7 @@ def users(user_id):
     if user_id not in user.USER_LOGIN_LIST:
         return msg('ユーザーが存在しません')
     me = user.get_id()
-    return render_template('user.html', 
+    return render_template('users.html', 
                         user_id=user_id, id=me,
                         is_fav=data.is_fav(me, user_id),
                         text_list=data.get_text(user_id))
@@ -95,7 +95,7 @@ def linebreak_filter(s):
 # 日付をフォーマットするフィルターを追加
 @app.template_filter('datestr')
 def datestr_filter(s):
-    return time.strftime('%Y 年 %m 月 %d 日', time.localtime(s))
+    return time.strftime('%Y年%m月%d日', time.localtime(s))
 
 # メインプログラム
 if __name__ == '__main__':
