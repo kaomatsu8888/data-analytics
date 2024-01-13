@@ -47,7 +47,7 @@ def get_text(id):
 # タイムラインに表示する俳句を取得
 def get_timelines(id):
     # お気に入り登録しているユーザーのIDを取得
-    table, q = get_fav_table()
+    table, q = get_text_table()
     favs = get_fav_list(id)
     favs.append(id) # 自分のIDも追加
     # 期間を指定して作品一覧を取得

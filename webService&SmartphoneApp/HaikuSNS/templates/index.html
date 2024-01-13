@@ -13,7 +13,7 @@
 <!-- ユーザーの一覧を表示 -->
 <div class="box pure-menu-horizontal pure-menu-scrollable">
     全ての作家 :
-    {% for u in all_users %}
+    {% for u in users %}
     <a class="pure-button" href="/users/{{ u }}">{{ u }}</a>
     {% endfor %}
 </div>
@@ -23,16 +23,16 @@
 <div class="haiku-list">
     {% if timelines | length == 0 %}
     <div class="box">タイムラインに作品がありません
-    俳句を書くか他のユーザーをお気に入りにしてください。</div>
+        俳句を書くか他のユーザーをお気に入りにしてください。</div>
     {% endif %}
-    {% for t in timelines %}
+    {% for i in timelines %}
     <div class="haiku">
-    {{ i.text | linebreak }}
-    <p class="info">
-    {{ i.time | datestr }}
-    作 : <a href="/users/{{ i.id }}">{{ i.id }}</a></p>
+        {{ i.text | linebreak }}
+        <p class="info">
+            {{ i.time | datestr }}
+            作 : <a href="/users/{{ i.id }}">{{ i.id }}</a></p>
     </div>
-{% endfor %}
+    {% endfor %}
 </div>
 
 {% endblock %}

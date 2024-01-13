@@ -10,8 +10,11 @@
 <!-- お気に入り登録有無と登録解除リンク -->
 <div class="box_c">
     {% if is_fav %}
+    👍<a class="pure-button" href="/fav/remove/{{ user_id }}">お気に入りを外す</a>
+    {% else %}
     👉<a class="pure-button" href="/fav/add/{{ user_id }}">お気に入りにする</a>
     {% endif %}
+</div>
 </div>
 <h3>作品</h3>
 
