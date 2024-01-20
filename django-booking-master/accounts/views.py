@@ -2,7 +2,8 @@ from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.models import CustomUser
 from accounts.forms import ProfileForm, SignupUserForm
-from django.shortcuts import render, redirect
+# from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404
 from allauth.account import views
 from app.models import Staff, Booking
 from django.utils import timezone
@@ -26,7 +27,7 @@ class LogoutView(views.LogoutView):
         return redirect('/')
 
 
-class ProfileView(LoginRequiredMixin, View):
+class ProfileView(LoginRequiredMixin, View): # ログインしていないとアクセスできないようにする
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
         staff_data = Staff.objects.get(user=user_data)
@@ -39,7 +40,7 @@ class ProfileView(LoginRequiredMixin, View):
         })
 
 
-class ProfileEditView(LoginRequiredMixin, View):
+class ProfileEditView(LoginRequiredMixin, View): # ログインしていないとアクセスできないようにする
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
         form = ProfileForm(
@@ -57,7 +58,7 @@ class ProfileEditView(LoginRequiredMixin, View):
             'user_data': user_data
         })
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs): # フォームの内容を保存する
         form = ProfileForm(request.POST or None)
         if form.is_valid():
             user_data = CustomUser.objects.get(id=request.user.id)
